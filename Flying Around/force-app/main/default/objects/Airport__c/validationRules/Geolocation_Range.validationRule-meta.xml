@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Geolocation_Range</fullName>
+    <active>true</active>
+    <description>Geolocation Range in order to avoid invalid locations</description>
+    <errorConditionFormula>OR( Geolocation__Latitude__s  &gt; 90, 
+    Geolocation__Latitude__s  &lt; -90, 
+     Geolocation__Longitude__s &gt; 180,
+     Geolocation__Longitude__s &lt; -180)</errorConditionFormula>
+    <errorMessage>The Geolocation Range is invalid.</errorMessage>
+</ValidationRule>

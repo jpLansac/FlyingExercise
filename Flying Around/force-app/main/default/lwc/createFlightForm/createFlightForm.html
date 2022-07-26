@@ -1,0 +1,35 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-21-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="slds-box slds-theme_default">
+        <div class="slds-form-element__control">
+            <template if:true={loading}>
+                <lightning-spinner alternative-text="Cargando" size="large"></lightning-spinner>
+            </template>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-record-edit-form object-api-name="Flight__c" >
+                        <lightning-input-field field-name="DepartureAirport__c" label="Departure Airport" onchange={handleDeparture} required> </lightning-input-field>
+                    </lightning-record-edit-form>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-record-edit-form object-api-name="Flight__c" >
+                        <lightning-input-field field-name="ArrivalAirport__c" label="Arrival Airport" onchange={handleArrival} required> </lightning-input-field>
+                    </lightning-record-edit-form>
+                </div>
+            </div>
+
+            <br><br>
+            
+            <div class="slds-align_absolute-center" >
+                <button onclick={handleSubmit} class="slds-button slds-button_brand" disabled={available}>Guardar</button>
+                <button onclick={closeAction} class="slds-button slds-button_neutral">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</template>
